@@ -10,6 +10,7 @@ exports.getRemote = async (req, res, next) => {
     try{
         const remotes = await db.remoteModel.find()
         // findOne({_id: req.paramsid})
+        console.log(req.user);
         res.status(200).json({
             "status":"success",
             data:remotes
@@ -17,6 +18,7 @@ exports.getRemote = async (req, res, next) => {
     
     }catch(err){
         console.log(err);
+        res.status(500).json({"message":err})
     }
     
 }
@@ -33,6 +35,6 @@ exports.postRemote = async (req, res, next) => {
         res.status(201).json({remote});
     }catch(err){
         console.log(err);
-
+        es.status(500).json({"message":err})
     }
 }
