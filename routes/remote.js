@@ -1,19 +1,24 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-const remoteController = require('../controllers/remoteController')
-const isAuth = require('../middleware/isAuth');
+const remoteController = require("../controllers/remoteController");
+const isAuth = require("../middleware/isAuth");
+
 // GET /remote
-router.get('/', isAuth,remoteController.getAllRemotes);
+router.get("/", isAuth, remoteController.getAllRemotes);
 
 // POST /remote
-router.post('/', isAuth, remoteController.createRemote);
+router.post("/", isAuth, remoteController.createRemote);
+
+// GET /remote/all
+router.get("/all", remoteController.getRemotes);
 
 // GET /remote/:id
-router.get('/:id',isAuth,remoteController.getRemote);
+router.get("/:id", isAuth, remoteController.getRemote);
 
 // PATCH /remote/:id
-router.patch('/:id',isAuth,remoteController.updateRemote);
+router.patch("/:id", isAuth, remoteController.updateRemote);
 
 // DELETE /remote/:id
-router.delete('/:id',isAuth,remoteController.deleteRemote);
+router.delete("/:id", isAuth, remoteController.deleteRemote);
+
 module.exports = router;
