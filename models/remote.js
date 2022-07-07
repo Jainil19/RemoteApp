@@ -19,10 +19,14 @@ const RemoteSchema = new Schema({
     commands: { // SWING , ON , OFF
         type: Schema.Types.Mixed,
         required: true
+    },
+    createdBy :{
+        type: Schema.Types.ObjectId,
+        ref:'Users',
+        required:true
     }
 },
     { timestamps: true }
 )
-
 
 module.exports = mongoose.model('Remotes', RemoteSchema);

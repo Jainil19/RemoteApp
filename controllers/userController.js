@@ -3,6 +3,12 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const md5 = require('md5');
 
+/**
+ * @method POST
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 exports.login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
@@ -25,6 +31,12 @@ exports.login = async (req, res, next) => {
     }
 }
 
+/**
+ * @method POST
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 exports.register = async (req, res, next) => {
     try {
         const { name, email, password } = req.body;
